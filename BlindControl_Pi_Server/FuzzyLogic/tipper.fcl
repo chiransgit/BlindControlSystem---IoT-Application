@@ -1,0 +1,51 @@
+FUNCTION_BLOCK tipper
+
+VAR_INPUT
+	ambient : REAL;
+	temperature : REAL;
+END_VAR
+
+VAR_OUTPUT
+	blind : REAL;
+END_VAR
+
+FUZZIFY ambient
+	TERM bright :=  (65.0, 0.0) (75.0, 1.0) (100.0, 1.0) ;
+	TERM dark :=  (0.0, 1.0) (25.0, 1.0) (35.0, 0.0) ;
+	TERM dim :=  (25.0, 0.0) (50.0, 1.0) (75.0, 0.0) ;
+END_FUZZIFY
+
+FUZZIFY temperature
+	TERM cold :=  (0.0, 0.0) (25.0, 1.0) (50.0, 0.0) ;
+	TERM comfort :=  (25.0, 0.0) (50.0, 1.0) (75.0, 0.0) ;
+	TERM freezing :=  (0.0, 1.0) (25.0, 0.0) ;
+	TERM hot :=  (75.0, 0.0) (100.0, 1.0) ;
+	TERM warm :=  (50.0, 0.0) (75.0, 1.0) (100.0, 0.0) ;
+END_FUZZIFY
+
+DEFUZZIFY blind
+	TERM close :=  (50.0, 0.0) (75.0, 1.0) (100.0, 1.0) ;
+	TERM half :=  (25.0, 0.0) (50.0, 1.0) (75.0, 0.0) ;
+	TERM open :=  (0.0, 1.0) (25.0, 1.0) (50.0, 0.0) ;
+	METHOD : COG;
+	DEFAULT := 0.0;
+	RANGE := (0.0 .. 100.0);
+END_DEFUZZIFY
+
+RULEBLOCK No1
+	ACT : MIN;
+	ACCU : MAX;
+	AND : MIN;
+	RULE 1 : IF (temperature IS hot) AND (ambient IS dim) THEN blind IS close;
+	RULE 2 : IF (temperature IS cold) AND (ambient IS bright) THEN blind IS half;
+	RULE 3 : IF (temperature IS warm) AND (ambient IS dim) THEN blind IS half;
+	RULE 4 : IF (temperature IS warm) AND (ambient IS bright) THEN blind IS close;
+	RULE 5 : IF ambient IS dark THEN blind IS open;
+	RULE 6 : IF (temperature IS freezing) AND (ambient IS dark) THEN blind IS open;
+	RULE 7 : IF (temperature IS cold) OR (ambient IS dark) THEN blind IS open;
+	RULE 8 : IF (temperature IS hot) AND (ambient IS bright) THEN blind IS open;
+	RULE 9 : IF temperature IS warm AND ambient IS dim THEN blind IS half;
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK
+
