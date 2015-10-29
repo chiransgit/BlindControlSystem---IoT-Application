@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView
+        android:id="@+id/tvTemperatureLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="#00FFFF"
+        android:text="Temperature: "
+        android:textColor="#ff00ff"
+        android:textColorHighlight="#000000"
+        android:textIsSelectable="true"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+    
+
+    <Spinner
+        android:id="@+id/spTemp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    
+     <Spinner
+        android:id="@+id/spLogicalOperation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    
+    <TextView
+        android:id="@+id/tvAmbientLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="#00FFFF"
+        android:text="Ambient: "
+        android:textColor="#ff00ff"
+        android:textColorHighlight="#000000"
+        android:textIsSelectable="true"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+    
+
+    <Spinner
+        android:id="@+id/spAmbient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    
+    <TextView
+        android:id="@+id/tvBlindStateLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="#00FFFF"
+        android:text="BlindState: "
+        android:textColor="#ff00ff"
+        android:textColorHighlight="#000000"
+        android:textIsSelectable="true"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+    
+    <Spinner
+        android:id="@+id/spBlindState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    
+    <Button
+        android:id="@+id/btadd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/addrules" />
+
+</LinearLayout>

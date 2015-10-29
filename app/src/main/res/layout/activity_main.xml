@@ -1,0 +1,110 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="edu.rit.csci759.mobile.MainActivity" >
+
+    <ImageView
+        android:id="@+id/ivAppHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/appheader" />
+
+    <TextView
+        android:id="@+id/textView0"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center_horizontal"
+        android:text="Developed by:"
+        android:textColor="@android:color/white"
+        android:textSize="12dp" />
+
+    <LinearLayout
+        android:id="@+id/LinearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3" >
+        
+        <TextView
+        android:id="@+id/textView2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center_horizontal"
+        android:text="Chiran Jain"
+        android:textColor="@android:color/white"
+        android:textSize="15dp" 
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center_horizontal"
+        android:text="Omkar Hegde"
+        android:textColor="@android:color/white"
+        android:textSize="15dp" 
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center_horizontal"
+        android:text="Slava Sivov"
+        android:textColor="@android:color/white"
+        android:textSize="15dp" 
+        android:layout_weight="1"/>
+        
+        
+    </LinearLayout>
+
+    
+
+    <Button
+        android:id="@+id/btlivefeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/livefeed"
+        android:onClick="clickLiveFeed" />
+
+    <Button
+        android:id="@+id/btfeedlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btlivefeed"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/feedlist"
+        android:onClick="clickFeedList" />
+
+    <Button
+        android:id="@+id/btrulelist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btfeedlist"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ruleslist"
+        android:onClick="clickRuleList" />
+
+    <Button
+        android:id="@+id/btaddrules"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btrulelist"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/addrules"
+        android:onClick="clickAddRules" />
+
+</LinearLayout>
